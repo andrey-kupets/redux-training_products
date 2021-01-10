@@ -1,9 +1,22 @@
+import {TOGGLE_ITEM_IN_WISHLIST} from '../action-types'
+
 const initialState = {
     wishlist: []
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case TOGGLE_ITEM_IN_WISHLIST: {
+            const updatedWishlist = state.wishlist.filter(
+                (el) => el.id !== action.payload.id);
+            console.log(updatedWishlist, 'updatedWishlist')
+            console.log(state.wishlist, 'state.wishlist')
+            if (updatedWishlist.length === state.wishlist.length) {
+                updatedWishlist.push(action.payload);
+            }
+            return {...state, wishlist: updatedWishlist
+            };
+        }
         default: return state;
     }
 };
