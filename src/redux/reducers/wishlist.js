@@ -9,13 +9,12 @@ export default (state = initialState, action) => {
         case TOGGLE_ITEM_IN_WISHLIST: {
             const updatedWishlist = state.wishlist.filter(
                 (el) => el.id !== action.payload.id);
-            console.log(updatedWishlist, 'updatedWishlist')
-            console.log(state.wishlist, 'state.wishlist')
+            console.log(updatedWishlist, 'updatedWishlist') // {} !== {}
+            console.log(state.wishlist, 'state.wishlist')   // {} !== {}
             if (updatedWishlist.length === state.wishlist.length) {
                 updatedWishlist.push(action.payload);
             }
-            return {...state, wishlist: updatedWishlist
-            };
+            return {...state, wishlist: updatedWishlist};
         }
         default: return state;
     }

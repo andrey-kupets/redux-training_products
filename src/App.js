@@ -35,7 +35,7 @@ const dispatch = useDispatch();
     <div className="App">
         <Header/>
         <ProductList products={products}/>
-      {cart.length} {wishlist.length} {products.length}
+      {/*{cart.length} {wishlist.length} {products.length}*/}
     </div>
   );
 }

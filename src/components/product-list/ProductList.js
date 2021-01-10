@@ -5,6 +5,7 @@ import {toggleItemInCart, toggleItemInWishlist} from '../../redux';
 export const ProductList = ({products}) => {
 
     const dispatch = useDispatch();
+    const {wishlist, cart} = useSelector(({wishlist: {wishlist}, cart: {cart}}) => ({wishlist, cart}))
 
     const onAddToCart = (product) => {
         dispatch(toggleItemInCart(product))
@@ -16,6 +17,8 @@ export const ProductList = ({products}) => {
     return (
         <div>
             {products.map((product) => (<ProductItem
+                isAddedToCart={!cart.find(({id}) => id === product.id)}
+                isAddedToWishlist={!wishlist.find(({id}) => id === product.id)}
                 onAddToCart={onAddToCart}
                 onAddToWishlist={onAddToWishlist}
                 key={product.id}
