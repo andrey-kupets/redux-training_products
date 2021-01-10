@@ -12,14 +12,14 @@ export const ProductItem = ({
             <h5>{price}</h5>
             <h5>{description}</h5>
             <button
-                style={{background: isAddedToCart ? 'lightgreen' : 'lightcoral'}}
-                onClick={() => onAddToCart(product)}>
-                {isAddedToCart ? 'add to cart' : 'remove from cart'}
-            </button>
-            <button
                 style={{background: isAddedToWishlist ? 'lightgreen' : 'lightcoral'}}
                 onClick={() => onAddToWishlist(product)}>
                 {isAddedToWishlist ? 'add to wishlist' : 'remove from wishlist'}
+            </button>
+            <button
+                style={{background: isAddedToCart ? 'lightgreen' : 'lightcoral'}}
+                onClick={() => onAddToCart(product)}>
+                {isAddedToCart ? 'add to cart' : 'remove from cart'}
             </button>
             <hr/>
         </div>
